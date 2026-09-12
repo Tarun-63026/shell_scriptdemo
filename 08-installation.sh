@@ -15,4 +15,4 @@ if [ $? -ne 0 ]; then
    echo "Installtion of nginx...Failure"
 else
    echo "Installation of nginx...Success"
-
+fi
