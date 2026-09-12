@@ -8,5 +8,5 @@ echo "Present working directory : $PWD"
 echo "Which user running the script: $USER"
 echo "HOSTNAME: $HOSTNAME"
 echo "PID of the current process: $$"
-sleep 60
+sleep 60 &
 echo "PID of the last background process: $!"
