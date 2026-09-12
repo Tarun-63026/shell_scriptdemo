@@ -3,6 +3,7 @@
 PERSON1=TARUN
 PERSON2=KAVYA
 
-$PERSON1 : echo "HI $PERSON2, HOW ARE YOU?"
-$PERSON2 : echo "I AM FINE $PERSON1, WHAT ABOUT YOU?"
-$PERSON1 : echo "I am doing great"
+echo "$PERSON1 :: Hello, $PERSON2!"
+echo "$PERSON2 :: How are you $PERSON1?"
+echo "$PERSON1 :: I am doing fine, I love you $PERSON2"
+echo "$PERSON2 :: I love you too $PERSON1, but I am think to learn Devops."
