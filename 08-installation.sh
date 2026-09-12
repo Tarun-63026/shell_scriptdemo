@@ -9,7 +9,7 @@ else
   echo "You are super user, please proceed.."
 fi
 
-dnf install nginx -y
+dnf install nginxv -y
 
 if [ $? -ne 0 ]; then
    echo "Installtion of nginx...Failure"
