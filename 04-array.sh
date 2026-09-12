@@ -8,4 +8,4 @@ MOVIES=(
     "The Lord of the Rings: The Return of the King"
 )
 
-echo "First moive name is: {$MOVIES [0] }"
+echo "First moive name is: ${MOVIES[0]}"
