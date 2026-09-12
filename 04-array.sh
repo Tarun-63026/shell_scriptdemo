@@ -9,3 +9,4 @@ MOVIES=(
 )
 
 echo "First moive name is: ${MOVIES[0]}"
+echo "All movies names are: ${MOVIES[@]}"
