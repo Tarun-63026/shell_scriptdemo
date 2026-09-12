@@ -9,4 +9,11 @@ else
   echo "You are super user, please proceed.."
 fi
 
-dnf install mysql -y
+dnf install nginxi -y
+
+if [ $? -ne 0 ]; then
+   echo "Installtion of nginx...Failure"
+   exit 1
+else
+   echo "Installation of nginx...Success"
+
