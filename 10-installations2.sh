@@ -20,4 +20,4 @@ else
 fi
 
 dnf install mysql -y &>>LOGFILE
-VALIDATE $? echo "Installtion of Mysql"
+VALIDATE $? Installtion of Mysql
