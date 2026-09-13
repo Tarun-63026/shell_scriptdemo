@@ -5,11 +5,16 @@ TIMESTAMP=$(date +%F-%H-%M-%s)
 SCRIPTNAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPTNAME-$TIMESTAMP.log
 
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-      echo "$2...Failure"
+      echo -e "$2...$R Faliure $N"
     else
-      echo "$2...Success"
+      echo "$2...$G Success $N"
     fi
 }
 
@@ -22,10 +27,10 @@ fi
 
 for i in $@
 do
-   echo "Packages needs to install"
+   echo " $i Package need to install"
    dnf list installed $i -y &>>LOGFILE
    if [ $? -eq 0 ]; then
-    echo "$i is already installed...Skipping"
+    echo "$i is already installed...$Y Skipping $N"
    else
      dnf install $i -y &>>LOGFILE
      VALIDATE $? "Installtion of $i"
