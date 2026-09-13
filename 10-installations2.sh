@@ -15,6 +15,7 @@ VALIDATE(){
 
 if [ $USERID -ne 0 ]; then
    echo "Please swicth to the super user"
+   exit 1
 else
    echo "You are the super user"
 fi
