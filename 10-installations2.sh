@@ -33,5 +33,11 @@ do
 done
 
 
-dnf install mysql -y &>>LOGFILE
-VALIDATE $? "Installtion of Mysql"
+dnf install $i -y &>>LOGFILE
+VALIDATE $? "Installtion of $i"
+
+dnf install $i -y &>>LOGFILE
+VALIDATE $? "Installtion of $i"
+
+dnf install $i -y &>>LOGFILE
+VALIDATE $? "Installtion of $i"
