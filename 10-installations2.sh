@@ -20,5 +20,18 @@ else
    echo "You are the super user"
 fi
 
+for i in $@
+do
+   echo "Packages needs to install"
+   dnf list installed -y &>>LOGFILE
+   if [ $? -eq 0 ]; then
+    echo "$i is already installed...Skipping"
+    exit 1
+   else
+   echo "$i need to install proceed"
+   fi
+done
+
+
 dnf install mysql -y &>>LOGFILE
 VALIDATE $? "Installtion of Mysql"
