@@ -8,6 +8,7 @@ LOG_FILE=/tmp/$SCRIPT_NAME-$TIME_STAMP.log
 VALIDATE(){
    if [ $1 -ne 0 ]; then
      echo "$2...Failure"
+     exit
    else
      echo "$2...Success"
    fi
@@ -29,6 +30,6 @@ do
     echo "$i was already installed"
   else
      dnf install $i -y &>>LOGFILE
-     VALIDATE $? $i installation
+     VALIDATE $? "Instlattion of $i"
   fi 
 done
