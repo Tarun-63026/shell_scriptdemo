@@ -41,10 +41,4 @@ VALIDATE $? "Changing the default root password"
 if [ $? -ne 0 ]; then 
   echo -e "Password already setup....$Y Skipping $N"
   exit 1
-else
-
-
-
-
-
-
+fi
