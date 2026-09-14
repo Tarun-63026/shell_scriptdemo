@@ -1,38 +1,35 @@
 #!/bin/bash
 
 USERID=$(id -u)
-TIMESTAMP=$(date +%F-%H-%M-%s)
-SCRIPTNAME=$(echo $0 | cut -d "." -f1)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPTNAME=$(echo $0 | cut -d "." f1)
 LOGFILE=/tmp/$SCRIPTNAME-$TIMESTAMP.log
 
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
 
 VALIDATE(){
-    if [ $1 -ne 0 ]; then
-      echo -e "$2...$R Faliure $N"
-    else
-      echo -e "$2...$G Success $N"
-    fi
- }
+   if [ $1 -ne 0 ]; then
+     echo "$2...Failure"
+   else
+     echo "$2...Success"
+   fi
+}
+
 
 if [ $USERID -ne 0 ]; then
-   echo "Please swicth to the super user"
-   exit 1
+  echo "Please seitch to the super user"
+  exit 1
 else
-   echo "You are the super user"
-fi
+  echo "You are super user, please proceed.."
+fi 
 
 for i in $@
 do
-   echo " $i Package need to install"
-   dnf list installed $i -y &>>LOGFILE
-   if [ $? -eq 0 ]; then
-    echo -e "$i is already installed...$Y Skipping $N"
+  echo "Pacakge need to install: $i"
+  dnf list installed -y $i &>>LOGFILE
+  if [ $i -eq 0 ]; then
+    echo "Package $i already installed..Skipping"
    else
-     dnf install $i -y &>>LOGFILE
-     VALIDATE $? Installtion of $i
+    dnf install $i -y &>>LOGFILE
+    VALIDATE $? "Intallation of $i"
    fi
 done
