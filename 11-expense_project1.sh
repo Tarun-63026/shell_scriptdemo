@@ -36,9 +36,9 @@ systemctl start mysqld &>>LOG_FILE
 VALIDATE $? "Starting the mysql server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE $? "Changing the default root password"
 
-if [ $? -eq 0 ]; then 
+if [ $? -ne 0 ]; then 
+  VALIDATE $? "Changing the default root password"
+else
   echo -e "Password already setup....$Y Skipping $N"
-  exit 1
 fi
