@@ -38,7 +38,7 @@ VALIDATE $? "Starting the mysql server"
 mysql_secure_installation --set-root-pass ExpenseApp@1
 VALIDATE $? "Changing the default root password"
 
-if [ $? -ne 0 ]; then 
+if [ $? -eq 0 ]; then 
   echo -e "Password already setup....$Y Skipping $N"
   exit 1
 fi
