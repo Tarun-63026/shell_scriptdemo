@@ -25,7 +25,7 @@ fi
 for i in $@
 do
   echo "Package to Install: $i"
-  dnf list installed $i $>>LOGFILE
+  dnf list installed $i &>>LOGFILE
   if [ $? -eq 0 ]; then
     echo "$i was already installed"
   else
