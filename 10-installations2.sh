@@ -23,12 +23,12 @@ fi
 
 for i in $@
 do
-  echo "Pacakge need to install: $i"
-  dnf list installed -y $i &>>LOGFILE
-  if[ $? -eq 0 ]; then
-    echo "Package $i already installed..Skipping"
-   else
-    dnf install $i -y &>>LOGFILE
-    VALIDATE $? "Intallation of $i"
-   fi
+  echo "Package to Install: $i"
+  dnf list installed $i $>>LOGFILE
+  if [ $? -eq 0 ]; then
+    echo "$i was already installed"
+  else
+     dnf install $i -y &>>LOGFILE
+     VALIDATE $? $i installation
+  fi 
 done
